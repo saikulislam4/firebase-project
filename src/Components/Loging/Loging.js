@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
+
 const Loging = () => {
     return (
         <div className=' flex justify-center items-center container mx-auto w-40% m-auto text h-screen '>
