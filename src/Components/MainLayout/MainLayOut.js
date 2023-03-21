@@ -5,12 +5,15 @@ import Navbar from './Navbar/Navbar';
 
 const MainLayOut = () => {
     return (
-        <div>
+        <>
+            <div className="containear mx-auto">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
+            </div>
+          
 
-        </div>
+        </>
     );
 };
 
