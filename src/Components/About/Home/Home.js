@@ -8,7 +8,7 @@ const Home = () => {
         .then(data => setTest(data))
     })
     return (
-        <div>
+        <div className='container mx-auto'>
             <h1> this is home page : {test.length} </h1>
         </div>
     );
