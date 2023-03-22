@@ -94,12 +94,12 @@ const handelCheckBox = (e) => {
                 <div className="botton flex justify-between mt-5 mb-10">
                     <div className="check flex relative w-60">
                     <input onChange={handelCheckBox} type="checkbox" name='Remember' className=' mr-2 ml-10' />
-                    <h6 className='text-[18px] '>Check box</h6>
+                    <h6 className='text-[18px] font-[300]'>Check box</h6>
                     <h6 className='text-red-700  ml-[3rem]  text-start mt-6 absolute mt text-[18px]'>{checkBoxError}</h6>
                     </div>
                     <div className="login flex">
         
-                    <h6 className='text-[20px] mr-3 '>Have an Account?</h6>
+                    <h6 className='text-[20px] mr-3 font-[300] '>Have an Account?</h6>
                     <Link to='/login' className="text-[18px]  hover:text-red-600  ">login</Link>
 
                     </div>

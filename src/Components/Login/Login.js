@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaUserTie} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Loging = () => {
+const Login = () => {
 
     
 
@@ -49,7 +49,7 @@ const handelCheckBox =(e) =>{
 
     return (
         <div className=' flex justify-center items-center container mx-auto w-40% m-auto text h-screen '>
-            <div className="loging border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg  text-center">
+            <div className=" w-[40] border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg  text-center">
                 <div className="icon  text-9xl justify-center flex mb-3 ">
                     <FaUserTie></FaUserTie>
 
@@ -71,10 +71,10 @@ const handelCheckBox =(e) =>{
                 <div className="botton flex justify-between mt-5 mb-10 relative ">
                     <div onChange={handelCheckBox} className="check flex">
                     <input type="checkbox" name='Remember' className=' mr-2  ' />
-                    <h6 className=' text-[18px]'>Check box</h6>
+                    <h6 className=' text-[18px] font-[300]'>Check box</h6>
                     <h6 className='text-red-700 text-start mt-7 absolute mt text-[18px]'> {errorCheckBox}</h6>
                     </div>
-                    <Link to="/registration"><h6 className=' text-[18px]'>forget Password?</h6></Link>
+                    <Link to="/registration"><h6 className=' text-[18px] font-[300]'>forget Password?</h6></Link>
                  
                 </div>
                 <div className="button ">
@@ -89,4 +89,4 @@ const handelCheckBox =(e) =>{
     );
 };
 
-export default Loging;
+export default Login;
