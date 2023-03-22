@@ -4,29 +4,47 @@ import { Link } from 'react-router-dom';
 
 const Loging = () => {
 
-    const [emailError, setEmailError]= useState('')
-    const [passwordError, setpasswordError]= useState('')
+    
 
-// --------------Email handel function--------------
-const [email, setEmail]= useState('')
 
 const handlelSubmit = (e) =>{
     e.preventDefault()
-    if(!email && setEmail){setEmailError('Email is Require')}
-    else if(!password && setPassword){setpasswordError('Password is Require')}
- 
+    if(!email){setEmailError('Email is Require')}
+    else if(!password){
+        setErrorPassword('password is require');
+    }
+    else if(!checkBox){
+        setErrorCheckBox('please check this box')
+    }
 }
+// --------------Email handel function--------------
+const [emailError, setEmailError]= useState('')
+const [email, setEmail]= useState('')
+
 const handelEmail = (e) =>{
     setEmail(e.target.value)
     setEmailError('')
 }
 // --------------Email handel function--------------
+
 const [password, setPassword]= useState('')
+const [errorPassword, setErrorPassword]= useState('')
 
 const handelPassword = (e) =>{
-    setPassword(e.target.valu)
-    setpasswordError('')
+    setPassword(e.target.value)
+    setErrorPassword('')
 }
+// --------------Chackbox handel function--------------
+const [checkBox, setCheckBox]= useState('')
+const [errorCheckBox, setErrorCheckBox]=useState('')
+
+const handelCheckBox =(e) =>{
+    setCheckBox(e.target.value)
+    setErrorCheckBox('')
+
+}
+
+
 
 
     return (
@@ -41,26 +59,27 @@ const handelPassword = (e) =>{
                 <div className="text">
                     
                     <div className="email my-10 relative">
-                    <input onChange={handelEmail} className='p-2 bg-transparent border rounded-sm outline-0 outline-offset-0'  type="text"  placeholder='type your email/number'/>
+                    <input onChange={handelEmail} className='p-2 bg-transparent border rounded-sm font-[200]'  type="text"  placeholder='type your email/number'/>
                     <h1 className='text-red-700 text-start mt-1 absolute mt text-[18px]'>{emailError}</h1>
                     </div>
                     <div className="email flex relative">
-                    <input onChange={handelPassword} className='p-2 bg-transparent border rounded-sm' type="password"  placeholder='type your password'/> 
-                    <h1 className='text-red-700 text-start mt-14 absolute mt text-[18px]'>{passwordError}</h1>
+                    <input onChange={handelPassword} className='p-2 bg-transparent border rounded-sm font-[200]' type="password"  placeholder='type your password'/> 
+                    <h1 className='text-red-700 text-start mt-14 absolute mt text-[18px]'>{errorPassword} </h1>
                     </div>
                    
                 </div>
-                <div className="botton flex justify-between mt-5 mb-10">
-                    <div className="check">
-                    <input type="checkbox" name='Remember' className=' mr-2' />Remember
+                <div className="botton flex justify-between mt-5 mb-10 relative ">
+                    <div onChange={handelCheckBox} className="check flex">
+                    <input type="checkbox" name='Remember' className=' mr-2  ' />
+                    <h6 className=' text-[18px]'>Check box</h6>
+                    <h6 className='text-red-700 text-start mt-7 absolute mt text-[18px]'> {errorCheckBox}</h6>
                     </div>
-                    <Link to="/registration"><h6>forget Password?</h6></Link>
+                    <Link to="/registration"><h6 className=' text-[18px]'>forget Password?</h6></Link>
                  
                 </div>
                 <div className="button ">
                 <button className=' w-full block font-bold px-12 mb-3 py-3 text-bg-white rounded-lg text-black hover:bg- bg-white hover:text-white hover:bg-red-600 ' type='submit'>Login</button>
-                <Link className=" block font-bold px-12 py-3 text-bg-white rounded-lg text-black hover:bg- bg-white hover:text-white hover:bg-red-600">create account</Link>
-                <button type='submit'>test</button>
+                <Link to='/registration' className=" block font-bold px-12 py-3 text-bg-white rounded-lg text-black hover:bg- bg-white hover:text-white hover:bg-red-600">create account</Link>
                 </div>
                 
                 </form>
