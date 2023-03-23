@@ -59,12 +59,12 @@ const handelCheckBox =(e) =>{
                 <div className="text">
                     
                     <div className="email my-10 relative">
-                    <input onChange={handelEmail} className='p-2 bg-transparent border rounded-sm font-[200]'  type="text"  placeholder='type your email/number'/>
+                    <input onChange={handelEmail} className={`p-2 bg-transparent border rounded-sm font-[200] ${emailError && 'border-red-700'}`}  type="text"  placeholder='type your email/number'/>
                     <h1 className='text-red-700 text-start mt-1 absolute mt text-[18px]'>{emailError}</h1>
                     </div>
                     <div className="email flex relative">
-                    <input onChange={handelPassword} className='p-2 bg-transparent border rounded-sm font-[200]' type="password"  placeholder='type your password'/> 
-                    <h1 className='text-red-700 text-start mt-14 absolute mt text-[18px]'>{errorPassword} </h1>
+                    <input onChange={handelPassword} className={`p-2 bg-transparent border  rounded-sm font-[200] ${errorPassword && 'border-red-700' }`} type="password "  placeholder='type your password'/> 
+                    <h1 className='text- text-start mt-14 absolute mt text-[18px]'>{errorPassword} </h1>
                     </div>
                    
                 </div>

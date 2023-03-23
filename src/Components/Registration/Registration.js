@@ -1,16 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaUserTie } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { UserAuthorContext } from '../Context/AuthorContext';
 
 const Registration = () => {
-
+const {createUser} = useContext(UserAuthorContext)
     const handelSubmit = (e) =>{
         e.preventDefault()
+
         if(!fullName ){setFullNameError('Please fill out this field.')}
         else if(!email){setEmailError('Please fill out this field.')}
         else if(!number){setNumberError('Please fill out this field.')}
         else if(!password){setPasswordError('Please fill out this field.')}
         else if(!checkBox){setCheckBoxError('Please Check this box.')}
+        else{
+            createUser(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage);
+              })
+        }
+
+
     }
 // ---------Handel full Name function---------
 const [fullName, setFullName]= useState('')

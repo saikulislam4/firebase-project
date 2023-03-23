@@ -1,6 +1,7 @@
 import React from 'react';
 
 const About = () => {
+
   return (
     <div className=' container mx-auto '>
       <h1>about page</h1>
