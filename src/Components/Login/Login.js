@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaUserTie} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const Login = () => {
-
-    
-
 
 const handlelSubmit = (e) =>{
     e.preventDefault()
@@ -44,11 +42,23 @@ const handelCheckBox =(e) =>{
 
 }
 
+const [loading, setLoading] = useState(false)
+useEffect(() => { 
+    setLoading(true)
+    setTimeout(()=>{
+        setLoading(false)
+    },3000)
 
+},[])
 
 
     return (
         <div className=' flex justify-center items-center container mx-auto w-40% m-auto text h-screen '>
+            {
+                loading ?
+                (<ScaleLoader color={'#fff'} size={'10'} loading={loading}/>)
+                
+                :
             <div className=" w-[40] border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg  text-center">
                 <div className="icon  text-9xl justify-center flex mb-3 ">
                     <FaUserTie></FaUserTie>
@@ -84,8 +94,10 @@ const handelCheckBox =(e) =>{
                 
                 </form>
             </div>
+            }
                 
         </div>
+    
     );
 };
 

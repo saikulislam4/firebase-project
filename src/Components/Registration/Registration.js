@@ -1,9 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { FaUserTie } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { UserAuthorContext } from '../Context/AuthorContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {useNavigate} from 'react-router-dom';
 
 const Registration = () => {
+    const navigate = useNavigate();
+
 const {createUser} = useContext(UserAuthorContext)
     const handelSubmit = (e) =>{
         e.preventDefault()
@@ -18,7 +23,12 @@ const {createUser} = useContext(UserAuthorContext)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                toast.success('Registration Complete' )
                 console.log(user);
+                setTimeout(() =>{
+                    navigate("/login")
+                },2000);
+
               })
               .catch((error) => {
                 const errorCode = error.code;
@@ -73,6 +83,7 @@ const handelCheckBox = (e) => {
 
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <div className=' flex justify-center items-center container mx-auto w-40% m-auto text h-screen '>
                     <form onSubmit={handelSubmit}>
             <div className=" loging border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg  text-center">
