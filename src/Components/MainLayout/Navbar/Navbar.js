@@ -16,7 +16,7 @@ const Navbar = () => {
   }
     
   return (
-    <div className=" py-7 bg-[black]">
+    <div className=" py-7 bg-gray-900/50 fixed top-0 right-0 left-0 ">
       <div className=" container mx-auto">
         <nav className="flex justify-between space-x-4">
 

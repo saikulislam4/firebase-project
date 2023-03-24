@@ -84,9 +84,9 @@ const handelCheckBox = (e) => {
     return (
         <div>
             <ToastContainer></ToastContainer>
-            <div className=' flex justify-center items-center container mx-auto w-40% m-auto text h-screen '>
+            <div className=' flex justify-center items-center container mx-auto w-40% m-auto h-screen '>
                     <form onSubmit={handelSubmit}>
-            <div className=" loging border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg  text-center">
+            <div className=" loging border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg pt-2  text-center">
                 <div className="icon  text-9xl justify-center flex mb-3 ">
                     <FaUserTie></FaUserTie>
 

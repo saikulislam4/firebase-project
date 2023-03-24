@@ -17,7 +17,7 @@ const Home = () => {
 
     return (
 
-        <div className='flex justify-center items-center container mx-auto w-40% m-auto text h-screen   '>
+        <div className='flex justify-center items-center container mx-auto w-40% m-auto h-screen   '>
            <div className="main">
            <h1 className='text-[80px] uppercase'>welcome to our website </h1>
            <div className="div text-center">
