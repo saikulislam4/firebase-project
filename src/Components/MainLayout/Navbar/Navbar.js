@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CgProfile} from 'react-icons/cg';
 import { UserAuthorContext } from "../../Context/AuthorContext";
 
 const Navbar = () => {
@@ -21,20 +22,28 @@ const Navbar = () => {
 
 
           <div className="logo">
-            <Link to="/">Home</Link>
+         
+            {
+              user&&
+              <Link to="/profile" className="font-bold px-3 py-2 mr-10 text-bg-white rounded-lg text-white  hover:text-red-600"> <CgProfile/> </Link>
+
+            }
+               <Link to="/">Home</Link>
           </div>
 
           <div className="link flex">
    
             {
               user&&
+              <>
               <div className=" flex">
               <Link to="/about" className="font-bold px-3 py-2 ml-4 text-bg-white rounded-lg text-white  hover:text-red-600">About</Link>
               <Link to="*" className="font-bold px-3 py-2 ml-4 text-bg-white rounded-lg text-white  hover:text-red-600">Media</Link>
               <Link to="*" className="font-bold px-3 py-2 ml-4 text-bg-white rounded-lg text-white  hover:text-red-600">Project</Link>
-              <Link to="*" className="font-bold px-3 py-2 ml-4 text-bg-white rounded-lg text-white  hover:text-red-600">Project</Link>
+
               
               </div>
+              </>
             }
           </div>
 

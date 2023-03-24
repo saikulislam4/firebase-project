@@ -5,6 +5,7 @@ import Home from './Components/About/Home/Home';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Login from './Components/Login/Login';
 import MainLayOut from './Components/MainLayout/MainLayOut';
+import Profile from './Components/Profile/Profile';
 import Registration from './Components/Registration/Registration';
 
 function App() {
@@ -22,12 +23,16 @@ const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
-        path: "*",
-        element:<ErrorPage></ErrorPage>
+        path: "/profile",
+        element: <Profile></Profile>
       },
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "*",
+        element:<ErrorPage></ErrorPage>
       },
       {
         path: "/login",

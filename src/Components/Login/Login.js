@@ -29,7 +29,7 @@ const handlelSubmit = (e) =>{
             setTimeout(()=>{
                 
                 Navigate("/home")
-            },1500)
+            },2000)
 
             // ...
             console.log(user)
