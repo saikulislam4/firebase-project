@@ -21,11 +21,11 @@ const Navbar = () => {
         <nav className="flex justify-between space-x-4">
 
 
-          <div className="logo">
+          <div className="logo flex items-center">
          
             {
               user&&
-              <Link to="/profile" className="font-bold px-3 py-2 mr-10 text-bg-white rounded-lg text-white  hover:text-red-600"> <CgProfile/> </Link>
+              <Link to="/profile" className="font-bold px-3 py-2 text-bg-white rounded-lg text-white text-[40px] hover:text-red-600"> <CgProfile/> </Link>
 
             }
                <Link to="/">Home</Link>
