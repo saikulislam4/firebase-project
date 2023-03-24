@@ -91,35 +91,35 @@ const handelCheckBox = (e) => {
                     <FaUserTie></FaUserTie>
 
                 </div>
-                <h1 className=' text-5xl mb-10'>Create an Account</h1>
+                <h1 className=' text-5xl mb-12'>Create an Account</h1>
                 <div className="text grid grid-cols-1">
-                    <div className="email  mb-5 grid grid-cols-2 relative">
+                    <div className=" mb-6 grid grid-cols-2 relative">
                     <label className=' w-40 text-end' htmlFor="First Name"> Full Name : </label>
-                    <input onChange={handelFullName} className=' p-2 bg-transparent mb-3 border rounded-sm font-[200]'  type="text"  placeholder='Type Your Full Name'/>
+                    <input onChange={handelFullName} className=' p-2 bg-transparent border font-[200]'  type="text"  placeholder=' Full Name'/>
                     <h6 className='text-red-700  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{fulNameError}</h6>
                     
                     </div >
-                    <div className=" email  mb-5 grid grid-cols-2 relative">
+                    <div className=" mb-6 grid grid-cols-2 relative">
                         <label className='w-40 text-end' htmlFor="First Name"> Email : </label>
-                    <input onChange={handelEmail} className='  p-2 bg-transparent border rounded-sm mb-3 font-[200] '  type="text"  placeholder='Type Your E-mail'/>
+                    <input onChange={handelEmail} className={`p-2 w-full bg-transparent border rounded-sm font-[200] ${emailError && 'border-red-700'}`} type="email"  placeholder=' E-mail'/>
                     <h6 className='text-red-700  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{emailError}</h6>
                     
                     </div>
-                    <div className=" email  mb-5 grid grid-cols-2 relative">
+                    <div className=" mb-6 grid grid-cols-2 relative">
                         <label className='w-40 text-end' htmlFor="First Name"> Number : </label>
-                    <input onChange={handelNumber} className='  p-2 bg-transparent border rounded-sm mb-3 font-[200]'  type="number"  placeholder='Type Your Number'/>
+                    <input onChange={handelNumber} className='  p-2 bg-transparent border rounded-sm font-[200]'  type="number"  placeholder=' Number'/>
                     <h6 className='text-red-700  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{numberError}</h6>
                     
                     </div>
-                    <div className=" email  mb-5 grid grid-cols-2 relative">
+                    <div className="mb-6 grid grid-cols-2 relative">
                         <label className='w-40 text-end' htmlFor="First Name"> Passoord : </label>
-                    <input onChange={handelPasseor} className='  p-2 bg-transparent border rounded-sm mb-3 font-[200]'  type="password"  placeholder='Type Your Password'/>
+                    <input onChange={handelPasseor} className={`p-2 w-full bg-transparent border rounded-sm font-[200] ${passwordError && 'border-red-700'}`}  type="password"  placeholder=' Password'/>
                     <h6 className='text-red-700  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{passwordError}</h6>
 
                     </div>
                    
                 </div>
-                <div className="botton flex justify-between mt-5 mb-10">
+                <div className="botton flex justify-between mt-1 mb-10">
                     <div className="check flex relative w-60">
                     <input onChange={handelCheckBox} type="checkbox" name='Remember' className=' mr-2 ml-10' />
                     <h6 className='text-[18px] font-[300]'>Check box</h6>

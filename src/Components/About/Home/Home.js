@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import { UserAuthorContext } from '../../Context/AuthorContext';
+
 
 const Home = () => {
 // const test = useContext(UserAuthorContext);
@@ -11,8 +12,11 @@ const Home = () => {
     // })
     const {user, createUser} = useContext(UserAuthorContext)
     console.log(user);
- 
+
+
+
     return (
+
         <div className='flex justify-center items-center container mx-auto w-40% m-auto text h-screen   '>
            <div className="main">
            <h1 className='text-[80px] uppercase'>welcome to our website </h1>

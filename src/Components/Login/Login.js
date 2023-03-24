@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { FaUserTie} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import ScaleLoader from "react-spinners/ScaleLoader";
+import React, { useContext, useState } from 'react';
+import { CiFaceSmile} from 'react-icons/ci';
+import {MdOutlineEmail} from 'react-icons/md';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserAuthorContext } from '../Context/AuthorContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+    const Navigate= useNavigate()
+
+    const {logIn}=useContext(UserAuthorContext)
 
 const handlelSubmit = (e) =>{
     e.preventDefault()
@@ -13,6 +19,33 @@ const handlelSubmit = (e) =>{
     }
     else if(!checkBox){
         setErrorCheckBox('please check this box')
+    }
+    else{
+        logIn(email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            toast.success('login successfull')
+            setTimeout(()=>{
+                
+                Navigate("/home")
+            },1500)
+
+            // ...
+            console.log(user)
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            if(errorCode === 'auth/user-not-found'){
+                setEmailError('E-mail Wrong')
+            }
+            else if(errorCode === 'auth/wrong-password'){
+                setErrorPassword('Password Wrong')
+            }
+            
+          })
     }
 }
 // --------------Email handel function--------------
@@ -31,6 +64,7 @@ const [errorPassword, setErrorPassword]= useState('')
 const handelPassword = (e) =>{
     setPassword(e.target.value)
     setErrorPassword('')
+
 }
 // --------------Chackbox handel function--------------
 const [checkBox, setCheckBox]= useState('')
@@ -42,26 +76,13 @@ const handelCheckBox =(e) =>{
 
 }
 
-const [loading, setLoading] = useState(false)
-useEffect(() => { 
-    setLoading(true)
-    setTimeout(()=>{
-        setLoading(false)
-    },3000)
-
-},[])
-
-
     return (
         <div className=' flex justify-center items-center container mx-auto w-40% m-auto text h-screen '>
-            {
-                loading ?
-                (<ScaleLoader color={'#fff'} size={'10'} loading={loading}/>)
-                
-                :
-            <div className=" w-[40] border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg  text-center">
+            <ToastContainer></ToastContainer>
+          
+            <div className=" w-[40%] border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg  text-center">
                 <div className="icon  text-9xl justify-center flex mb-3 ">
-                    <FaUserTie></FaUserTie>
+                    <CiFaceSmile></CiFaceSmile>
 
                 </div>
                 <h1 className=' text-5xl'>User logIn</h1>
@@ -69,22 +90,24 @@ useEffect(() => {
                 <div className="text">
                     
                     <div className="email my-10 relative">
-                    <input onChange={handelEmail} className={`p-2 bg-transparent border rounded-sm font-[200] ${emailError && 'border-red-700'}`}  type="text"  placeholder='type your email/number'/>
+                    <input onChange={handelEmail} className={`p-2 w-full bg-transparent border rounded-sm font-[200] ${emailError && 'border-red-700'}`}  type="email"  placeholder='E-mail'/>
                     <h1 className='text-red-700 text-start mt-1 absolute mt text-[18px]'>{emailError}</h1>
+                    <div className="email absolute top-2 mr-2 right-0 text-[38px] "> <MdOutlineEmail></MdOutlineEmail> </div>
                     </div>
                     <div className="email flex relative">
-                    <input onChange={handelPassword} className={`p-2 bg-transparent border  rounded-sm font-[200] ${errorPassword && 'border-red-700' }`} type="password "  placeholder='type your password'/> 
-                    <h1 className='text- text-start mt-14 absolute mt text-[18px]'>{errorPassword} </h1>
+                    <input onChange={handelPassword} className={`p-2 w-full bg-transparent border  rounded-sm font-[200] ${errorPassword && 'border-red-700' }`} type="password"  placeholder=' Password'/> 
+                    <h1 className='text-red-700 text-start mt-14 absolute mt text-[18px]'>{errorPassword} </h1>
+                    
                     </div>
                    
                 </div>
                 <div className="botton flex justify-between mt-5 mb-10 relative ">
-                    <div onChange={handelCheckBox} className="check flex">
-                    <input type="checkbox" name='Remember' className=' mr-2  ' />
+                    <div  className="check flex">
+                    <input onChange={handelCheckBox} type="checkbox" name='Remember' className=' mr-2  ' />
                     <h6 className=' text-[18px] font-[300]'>Check box</h6>
                     <h6 className='text-red-700 text-start mt-7 absolute mt text-[18px]'> {errorCheckBox}</h6>
                     </div>
-                    <Link to="/registration"><h6 className=' text-[18px] font-[300]'>forget Password?</h6></Link>
+                    <Link to=""><h6 className=' text-[18px] font-[300]'>forget Password?</h6></Link>
                  
                 </div>
                 <div className="button ">
@@ -94,7 +117,6 @@ useEffect(() => {
                 
                 </form>
             </div>
-            }
                 
         </div>
     
