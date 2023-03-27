@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FaUserTie } from 'react-icons/fa';
+import { FaSmile } from 'react-icons/fa';
 import { Link} from 'react-router-dom';
 import { UserAuthorContext } from '../Context/AuthorContext';
 import { ToastContainer, toast } from 'react-toastify';
@@ -86,9 +86,9 @@ const handelCheckBox = (e) => {
             <ToastContainer></ToastContainer>
             <div className=' flex justify-center items-center container mx-auto w-40% m-auto h-screen '>
                     <form onSubmit={handelSubmit}>
-            <div className=" loging border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg pt-2  text-center">
-                <div className="icon  text-9xl justify-center flex mb-3 ">
-                    <FaUserTie></FaUserTie>
+            <div className=" loging border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg pt-4  text-center">
+                <div className="icon  text-9xl justify-center flex mb-2 ">
+                    <FaSmile></FaSmile>
 
                 </div>
                 <h1 className=' text-5xl mb-12'>Create an Account</h1>
@@ -96,25 +96,25 @@ const handelCheckBox = (e) => {
                     <div className=" mb-6 grid grid-cols-2 relative">
                     <label className=' w-40 text-end' htmlFor="First Name"> Full Name : </label>
                     <input onChange={handelFullName} className=' p-2 bg-transparent border font-[200]'  type="text"  placeholder=' Full Name'/>
-                    <h6 className='text-red-700  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{fulNameError}</h6>
+                    <h6 className='text-[#fe236c]  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{fulNameError}</h6>
                     
                     </div >
                     <div className=" mb-6 grid grid-cols-2 relative">
                         <label className='w-40 text-end' htmlFor="First Name"> Email : </label>
                     <input onChange={handelEmail} className={`p-2 w-full bg-transparent border rounded-sm font-[200] ${emailError && 'border-red-700'}`} type="email"  placeholder=' E-mail'/>
-                    <h6 className='text-red-700  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{emailError}</h6>
+                    <h6 className='text-[#fe236c]  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{emailError}</h6>
                     
                     </div>
                     <div className=" mb-6 grid grid-cols-2 relative">
                         <label className='w-40 text-end' htmlFor="First Name"> Number : </label>
                     <input onChange={handelNumber} className='  p-2 bg-transparent border rounded-sm font-[200]'  type="number"  placeholder=' Number'/>
-                    <h6 className='text-red-700  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{numberError}</h6>
+                    <h6 className='text-[#fe236c]  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{numberError}</h6>
                     
                     </div>
                     <div className="mb-6 grid grid-cols-2 relative">
                         <label className='w-40 text-end' htmlFor="First Name"> Passoord : </label>
-                    <input onChange={handelPasseor} className={`p-2 w-full bg-transparent border rounded-sm font-[200] ${passwordError && 'border-red-700'}`}  type="password"  placeholder=' Password'/>
-                    <h6 className='text-red-700  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{passwordError}</h6>
+                    <input onChange={handelPasseor} className={`p-2 w-full bg-transparent border rounded-sm font-[200] ${passwordError && 'border-[#fe236c]'}`}  type="password"  placeholder=' Password'/>
+                    <h6 className='text-[#fe236c]  ml-[18rem]  text-start mt-14 absolute mt text-[18px]'>{passwordError}</h6>
 
                     </div>
                    
@@ -123,17 +123,17 @@ const handelCheckBox = (e) => {
                     <div className="check flex relative w-60">
                     <input onChange={handelCheckBox} type="checkbox" name='Remember' className=' mr-2 ml-10' />
                     <h6 className='text-[18px] font-[300]'>Check box</h6>
-                    <h6 className='text-red-700  ml-[3rem]  text-start mt-6 absolute mt text-[18px]'>{checkBoxError}</h6>
+                    <h6 className='text-[#fe236c]  ml-[3rem]  text-start mt-6 absolute mt text-[18px]'>{checkBoxError}</h6>
                     </div>
                     <div className="login flex">
         
                     <h6 className='text-[20px] mr-3 font-[300] '>Have an Account?</h6>
-                    <Link to='/login' className="text-[18px]  hover:text-red-600  ">login</Link>
+                    <Link to='/login' className="text-[18px]  hover:text-[#fe236c]  ">login</Link>
 
                     </div>
 
                 </div>
-                <button className='block w-full font-bold px-12 py-3 text-bg-white rounded-lg text-black hover:bg- bg-white hover:text-white hover:bg-red-600' type='submit'>Create account</button>
+                <button className='block w-full font-bold px-12 py-3 text-bg-white rounded-lg text-black hover:bg- bg-white hover:text-white hover:bg-[#fe236c]' type='submit'>Create account</button>
             
             </div>
             </form>

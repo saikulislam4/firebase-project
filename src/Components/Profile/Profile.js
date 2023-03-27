@@ -7,12 +7,12 @@ const Profile = () => {
     return (
         <div className='container mx-auto'>
             
-           <div className="div w-[40%] p-5 bg-[#404258]">
+           <div className="div w-[40%] p-5 bg-[#404258] mt-[7rem]">
 
             <ul>
+                <li><p className=" mr-5">Email : {user?.email} </p></li>
                 <li><p className=" mr-5">Full Name : {} </p></li>
                 <li><p className=" mr-5">Number : {} </p></li>
-                <li><p className=" mr-5">Email : {user?.email} </p></li>
             </ul>
            </div>
             

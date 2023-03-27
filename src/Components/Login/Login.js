@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { CiFaceSmile} from 'react-icons/ci';
+import { FaSmileBeam} from 'react-icons/fa';
 import {MdOutlineEmail} from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuthorContext } from '../Context/AuthorContext';
@@ -82,7 +82,7 @@ const handelCheckBox =(e) =>{
           
             <div className=" w-[40%] border-spacing-1 px-20 py-10 bg-black bg-opacity-20 rounded-lg  text-center">
                 <div className="icon  text-9xl justify-center flex mb-3 ">
-                    <CiFaceSmile></CiFaceSmile>
+                    <FaSmileBeam></FaSmileBeam>
 
                 </div>
                 <h1 className=' text-5xl'>User logIn</h1>
